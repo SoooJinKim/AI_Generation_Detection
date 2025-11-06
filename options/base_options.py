@@ -42,7 +42,30 @@ class BaseOptions():
         parser.add_argument('--suffix', default='', type=str, help='customized suffix: opt.name = opt.name + suffix: e.g., {model}_{netG}_size{loadSize}')
         parser.add_argument('--delr_freq', type=int, default=20, help='frequency of changing lr')
 
-        parser.add_argument('--transform_mode', type=str, default='texture', help='mode to transform')
+        # Tower 모드 선택
+        parser.add_argument('--tower_mode', type=str, default='single', choices=['single', 'multi'],
+                          help='Tower mode: single or multi (multi is not implemented yet)')
+        
+        # Transform 관련 옵션
+        parser.add_argument('--transform_mode', type=str, default='texture', 
+                          choices=['texture', 'edge', 'sharpen'],
+                          help='Single-Tower transform mode: texture, edge, sharpen')
+        parser.add_argument('--transform_modes', type=str, default=None,
+                          help='Multi-Tower transform modes (comma-separated): texture,edge,sharpen')
+        
+        # Multi-Tower 관련 옵션 (TODO: Not implemented yet)
+        parser.add_argument('--fusion_method', type=str, default='concat',
+                          choices=['concat', 'average', 'attention'],
+                          help='Fusion method for Multi-Tower: concat, average, attention (NOT IMPLEMENTED)')
+        # Video 관련 옵션
+        parser.add_argument('--video_num_frames', type=int, default=5,
+                          help='Number of frames to sample from video')
+        parser.add_argument('--video_sampling', type=str, default='uniform',
+                          choices=['uniform', 'random'],
+                          help='Video frame sampling strategy: uniform or random')
+        parser.add_argument('--video_voting', type=str, default='max',
+                          choices=['max', 'avg', 'majority'],
+                          help='Video prediction voting: max (max prob), avg (average prob), majority (most common)')
         
         self.initialized = True
         return parser
@@ -114,6 +137,13 @@ class BaseOptions():
             opt.jpg_qual = list(range(opt.jpg_qual[0], opt.jpg_qual[1] + 1))
         elif len(opt.jpg_qual) > 2:
             raise ValueError("Shouldn't have more than 2 values for --jpg_qual.")
+        
+        # Multi-Tower: transform_modes 파싱
+        if opt.transform_modes is not None and opt.transform_modes != '':
+            opt.transform_modes = [mode.strip() for mode in opt.transform_modes.split(',')]
+            print(f"🔀 Multi-Tower mode enabled with transforms: {opt.transform_modes}")
+        else:
+            opt.transform_modes = None
 
         self.opt = opt
         return self.opt
