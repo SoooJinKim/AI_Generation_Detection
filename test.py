@@ -33,7 +33,7 @@ TRANSFORM_MODE = getattr(opt, "transform_mode", "default") or "default"
 # ==========================
 # 공통 설정
 # ==========================
-BASE_DATAROOT     = "/data/Deepfake_train_val/test"
+BASE_DATAROOT     = r"/Users/kimsoojin/Desktop/SKKU/AIchampion/CODE/AI_Generation_Detection/samples"
 NO_RESIZE_DEFAULT = False
 NO_CROP_DEFAULT   = True
 
