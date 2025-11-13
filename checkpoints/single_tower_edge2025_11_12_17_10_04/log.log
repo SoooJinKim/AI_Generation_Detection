@@ -1,0 +1,32 @@
+train.py  --tower_mode  single  --mode  realfake  --dataroot  /Users/kimsoojin/Desktop/SKKU/AIchampion/1112/AI_Generation_Detection/samples  --train_split  train  --val_split  val  --transform_mode  edge  --batch_size  2  --lr  0.0001  --optim  adam  --niter  5  --delr_freq  20  --earlystop_epoch  1  --name  single_tower_texture  --gpu_ids  0
+📊 Loaded 7 samples from /Users/kimsoojin/Desktop/SKKU/AIchampion/1112/AI_Generation_Detection/samples/train
+   - Real: 4
+   - Fake: 3
+
+============================================================
+🏗️  Single-Tower Model
+============================================================
+  Architecture: ResNet50
+  Transform mode: edge
+  Training from scratch (no pretrained)
+  Dataset: /Users/kimsoojin/Desktop/SKKU/AIchampion/1112/AI_Generation_Detection/samples/train/
+============================================================
+
+⚡ Using Apple MPS (Mac GPU)
+cwd: /Users/kimsoojin/Desktop/SKKU/AIchampion/1112/AI_Generation_Detection
+✅ 샘플 저장: samples/2/edge_comparison.png
+✅ 샘플 저장: samples/1/edge_comparison.png
+✅ 샘플 저장: samples/1/edge_comparison.png
+✅ 샘플 저장: samples/0/edge_comparison.png
+✅ 샘플 저장: samples/2/edge_comparison.png
+✅ 샘플 저장: samples/3/edge_comparison.png
+✅ 샘플 저장: samples/0/edge_comparison.png
+📊 Loaded 7 samples from /Users/kimsoojin/Desktop/SKKU/AIchampion/1112/AI_Generation_Detection/samples/val
+   - Real: 4
+   - Fake: 3
+(Val @ epoch 5) acc: 0.571429; ap: 1.000000
+💾 Saved state_dict: ./checkpoints/single_tower_texture2025_11_12_17_10_04/model_epoch_5.pth
+💾 Saved state_dict: ./checkpoints/single_tower_texture2025_11_12_17_10_04/model_epoch_best.pth
+🔥 New best AP: 1.000000 @ epoch 5
+💾 Saved state_dict: ./checkpoints/single_tower_texture2025_11_12_17_10_04/model_epoch_last.pth
+✅ Training finished. Best AP: 1.000000 @ epoch 5
