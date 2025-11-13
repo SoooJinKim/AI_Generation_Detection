@@ -1,0 +1,18 @@
+⚡ Using Apple MPS (Mac GPU)
+⌛ 모델 로드를 시작합니다...
+✅ 모델 로드 완료: /Users/kimsoojin/Desktop/SKKU/AIchampion/1112/AI_Generation_Detection/checkpoints/single_tower_texture2025_11_12_17_04_55/model_epoch_best.pth
+✅ 모델 로드 완료: /Users/kimsoojin/Desktop/SKKU/AIchampion/1112/AI_Generation_Detection/checkpoints/single_tower_edge2025_11_12_17_10_04/model_epoch_best.pth
+✅ 모델 로드 완료: /Users/kimsoojin/Desktop/SKKU/AIchampion/1112/AI_Generation_Detection/checkpoints/single_tower_sharpen2025_11_12_17_13_28/model_epoch_best.pth
+==================================================
+🖼️  이미지 추론 시작: /Users/kimsoojin/Desktop/SKKU/AIchampion/1112/AI_Generation_Detection/samples/train/fake/0.png
+
+--- [개별 타워 결과] ---
+  > texture   : Class=0, Prob=0.4047
+  > edge      : Class=0, Prob=0.4047
+  > sharpen   : Class=0, Prob=0.4047
+
+--- [최종 앙상블 결과] ---
+  판정: REAL (Class: 0)
+  신뢰도 (Confidence): 0.0000
+==================================================
+(AI_Generation_Detection) (base) gimsujin-ui-MacBookPro:AI_Generation_Detection kimsoojin$ 

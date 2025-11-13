@@ -1,0 +1,18 @@
+[project]
+name = "ai-generation-detection"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=2.2.6",
+    "opencv-python>=4.11.0.86",
+    "pillow>=12.0.0",
+    "scikit-learn>=1.7.2",
+    "scipy>=1.15.3",
+    "tensorboard>=2.20.0",
+    "tensorboardx>=2.6.4",
+    "torch>=1.2.0",
+    "torchvision>=0.24.0",
+    "tqdm>=4.67.1",
+]
